@@ -8,6 +8,11 @@ Cipher::Cipher() {
 }
 
 // ----------------------------------------------------------------------------
+Cipher::Cipher(uint16_t key_) : key(key_) {
+  this->generateSubkeys();
+}
+
+// ----------------------------------------------------------------------------
 void Cipher::generateSubkeys() {
   // initial permutation: 1 2 3 4 5 6 7 8 9 10  -->  3 5 2 7 4 10 1 9 8 6
   // Original: 1011010111 (2D7)

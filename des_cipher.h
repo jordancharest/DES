@@ -10,6 +10,7 @@ namespace DES {
 class Cipher {
  public:
   Cipher();
+  Cipher(uint16_t key_);
   ~Cipher() = default;
 
   // moving and copying is forbidden
@@ -29,7 +30,7 @@ class Cipher {
   uint8_t feistel(uint8_t data, uint16_t key);
 
   // members ------------------------------------
-  const uint16_t key = 0x2D7; // 0b1011010111
+  uint16_t key = 0x2D7; // 0b1011010111
   uint16_t key1, key2;
   const std::vector<std::vector<int>> S0 = {{1,0,3,2}, 
                                             {3,2,1,0},
