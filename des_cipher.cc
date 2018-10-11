@@ -125,6 +125,13 @@ uint8_t Cipher::feistel(uint8_t data, uint16_t key) {
 }
 
 // ----------------------------------------------------------------------------
+void Cipher::encrypt(const std::string& plaintext, std::string& result) {
+  result.clear();
+  for (char c : plaintext)
+    result += this->encrypt(c);
+}
+
+// ----------------------------------------------------------------------------
 uint8_t Cipher::encrypt(uint8_t plain) {
   // std::cout << "\nEncrypting...\n";
 
@@ -162,6 +169,13 @@ uint8_t Cipher::encrypt(uint8_t plain) {
           | ((cipher & 0x00000080) >> 1);
 
   return cipher;
+}
+
+// ----------------------------------------------------------------------------
+void Cipher::decrypt(const std::string& ciphertext, std::string& result) {
+  result.clear();
+  for (char c : ciphertext)
+    result += this->decrypt(c);
 }
 
 // ----------------------------------------------------------------------------

@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+#include <string>
 #include <vector>
 
 namespace DES {
@@ -21,8 +22,9 @@ class Cipher {
 
   // Encrypt and decrypt one byte at a time
   uint8_t encrypt(uint8_t byte);
+  void encrypt(const std::string& plaintext, std::string& result);
   uint8_t decrypt(uint8_t byte);
-
+  void decrypt(const std::string& ciphertext, std::string& result);
 
  private:
   // methods ------------------------------------
